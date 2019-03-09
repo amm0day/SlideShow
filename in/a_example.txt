@@ -1,5 +1,9 @@
-4
+8
 H 3 cat beach sun
 H 2 selfie smile
+H 2 garden selfie
+H 2 garden cat
+H 3 cat smile sun
+H 2 cat smile
 H 2 garden selfie
 H 2 garden cat

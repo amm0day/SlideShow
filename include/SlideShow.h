@@ -1,14 +1,24 @@
-#include "List.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
 
 
 class Images {
-private:
-	void	readFile(string fpath);
-	void	initRelations();
-	int		getRelWeight(int r, int h);
-
-
 public:
+	class Img {
+	public:
+		Img*		pNext;
+
+		int			index;
+		int			tag_size;
+		string		*tags;
+		Img(Img* pNext = nullptr){this->pNext = pNext;}
+	};
+
 	int		total_img;
 	Images(string fpath){
 		readFile(fpath);
@@ -17,21 +27,13 @@ public:
 	void	setRelations();
 	void	solveIt();
 
-	class Rel{
-	public:
-		int			weight;
-		int			rel_id;
-	};
 
-	class Img {
-	public:
-		int			index;
-		int			tag_size;
-		List<Rel*>	relations;
-		string		*tags;
-	};
+	Img*	H = nullptr;
+	Img*	V = nullptr;
+    Img*	R = nullptr;
 
-	List<Img*>	H;
-	List<Img*>	V;
-    List<Img*>  R;
+	void	readFile(string fpath);
+	void	initRelations();
+	int		getRelWeight(Img* r, Img* h);
+
 };

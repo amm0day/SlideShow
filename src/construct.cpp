@@ -17,15 +17,24 @@ void Images::readFile(string fpath){
                 file >> img->tags[j];
             // Insert images in List
             }
-            if (c == 'H')
-                this->H.pushBack(img);
-            else if (c == 'V')
-                this->V.pushBack(img);
+            if (c == 'H'){
+                img->pNext = this->H;
+                this->H = img;
+            }
+            else if (c == 'V') {
+                img->pNext = this->V;
+                this->V = img;
+            }
         }
     }
+    // Img* current = this->H;
+    // while(current){
+    //     cout << '[' << current->index << "] " << current->tag_size;
+    //     for (int i = 0; i < current->tag_size; i++){
+    //         cout << ' ' << current->tags[i];
+    //     }
+    //     cout << endl;
+    //     current = current->pNext;
+    // }
+    // cout  << "------------------------" << endl;
 }
-
-// void Images::initRelations(){
-//         H[i]->relations = new List<Rel*>;
-//         V[i]->relations = new List<Rel*>;
-// }
